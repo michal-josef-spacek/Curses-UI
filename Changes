@@ -1,8 +1,9 @@
 Changelog for the Curses::UI distribution:
 
         - RT#121041: Fix Makefile.PL
+        - RT#141096: Added -vertical option to Dialog::Basic.
         - RT#27034: Fix focus (Markus Schräder).
-        - Fix wide character support for Curses 1.29.
+        - RT#56695: Fix wide character support for Curses 1.29 (Petr Písař).
         - Update to Module::Install 1.19.
 
 Version 0.9609
