@@ -1,3 +1,7 @@
+use lib '.';
+use strict;
+use warnings;
+
 # Load the Module::Install bundled in ./inc/
 use inc::Module::Install;
 
