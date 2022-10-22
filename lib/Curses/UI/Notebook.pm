@@ -670,7 +670,9 @@ sub mouse_button1($$$$) {
     $this->focus if (not $this->{-focus} and $this->focusable);
 
     # If click was in the 'tabs' window.
-    if ($ev_y <= ($this->{-border} + $this->{-sbborder} ? 3 : 1)) {
+    my $noborderMax = 1 + $this->{-parent}->{-ipad} + $this->{-parent}->{-padtop};
+    my $borderMax = 2 + $noborderMax;
+    if ($ev_y <= ($this->{-border} + $this->{-sbborder} ? $borderMax : $noborderMax)) {
         # Figure out which page was clicked.
         my $len = 0;
         foreach my $page (@{$this->{-pages}}) {

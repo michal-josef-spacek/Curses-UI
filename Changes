@@ -1,5 +1,6 @@
 Changelog for the Curses::UI distribution:
 
+        - RT#111441: Fix bug in Notebook (Paul Tassinari)
         - RT#121041: Fix Makefile.PL
         - RT#141096: Added -vertical option to Dialog::Basic.
         - RT#27034: Fix focus (Markus Schräder).
