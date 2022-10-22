@@ -1,8 +1,11 @@
 TODO
 ====
 1. Unify module versions to one version in dist.
-2. https://rt.cpan.org/Public/Bug/Display.html?id=125327
-3.
+2. onfocus event is not triggerd on modalfocus
+https://rt.cpan.org/Public/Bug/Display.html?id=125327
+3. t/12gpm_handler.t fails if Curses::UI::Mousehandler::GPM is installed
+https://rt.cpan.org/Public/Bug/Display.html?id=110032
+4.
 
 Applied
 =======
