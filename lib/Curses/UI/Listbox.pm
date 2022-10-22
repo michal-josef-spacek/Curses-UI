@@ -340,7 +340,7 @@ sub draw(;$)
     if (not @{$this->{-values}})
     {
         $this->{-canvasscr}->attron(A_DIM);    
-        $this->{-canvasscr}->addstr(0,0,'- no values -');
+        $this->{-canvasscr}->addstring(0,0,'- no values -');
         $this->{-canvasscr}->attroff(A_DIM);    
 
     # There are values. Show them!
@@ -388,7 +388,7 @@ sub draw(;$)
             }
             
             # Make full line reverse or blank
-            $this->{-canvasscr}->addstr(
+            $this->{-canvasscr}->addstring(
                 $y, $prefix_len, 
                 " "x($this->canvaswidth-$prefix_len)
             );
@@ -404,9 +404,9 @@ sub draw(;$)
             if ($this->{-multi}) {
                 if (defined $this->{-selected} and    
                     $this->{-selected}->{$i}) {
-		    $this->{-canvasscr}->addstr($y, 0, '[X]');
+		    $this->{-canvasscr}->addstring($y, 0, '[X]');
                 } else {
-                    $this->{-canvasscr}->addstr($y, 0, '[ ]');
+                    $this->{-canvasscr}->addstring($y, 0, '[ ]');
                 }
             }
 
@@ -414,9 +414,9 @@ sub draw(;$)
             elsif ($this->{-radio}) {
                 if (defined $this->{-selected} 
                     and $i == $this->{-selected}) {
-                    $this->{-canvasscr}->addstr($y, 0, '<o>');
+                    $this->{-canvasscr}->addstring($y, 0, '<o>');
                 } else {
-                    $this->{-canvasscr}->addstr($y, 0, '< >');
+                    $this->{-canvasscr}->addstring($y, 0, '< >');
                 }
             }
             $this->{-canvasscr}->attroff(A_BOLD) if $this->{-focus};

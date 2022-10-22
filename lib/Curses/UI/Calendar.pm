@@ -266,14 +266,14 @@ sub draw(;$)
     # Draw day, month and year. If the widget has focus,
     # show the cursor position. Else show the selected position.
     my $c = $this->{-focus} ? 'c' : '';    
-    $this->{-canvasscr}->addstr(0,0," "x$this->canvaswidth);
-    $this->{-canvasscr}->addstr(0,0, $months[$this->{"-${c}month"}] 
+    $this->{-canvasscr}->addstring(0,0," "x$this->canvaswidth);
+    $this->{-canvasscr}->addstring(0,0, $months[$this->{"-${c}month"}]
                     . " " . $this->{"-${c}day"});
-    $this->{-canvasscr}->addstr(0,$this->canvaswidth-4,$this->{"-${c}year"});
+    $this->{-canvasscr}->addstring(0,$this->canvaswidth-4,$this->{"-${c}year"});
 
     # Draw daynames
     $this->{-canvasscr}->attron(A_BOLD) if $this->{-focus};
-    $this->{-canvasscr}->addstr(2,0,join " ", @days);
+    $this->{-canvasscr}->addstring(2,0,join " ", @days);
 
     # Reset bold font attribute.
     $this->{-canvasscr}->attroff(A_BOLD) if $this->{-focus};
@@ -313,7 +313,7 @@ sub draw(;$)
 	       $this->{-cyear}  == $year;
 
         # Draw the day.
-        $this->{-canvasscr}->addstr($y, $weekday*3, sprintf("%2d",$day));
+        $this->{-canvasscr}->addstring($y, $weekday*3, sprintf("%2d",$day));
 
         # Reset attributes.
         $this->{-canvasscr}->attroff(A_REVERSE);

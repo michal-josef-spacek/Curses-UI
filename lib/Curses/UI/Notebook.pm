@@ -350,7 +350,7 @@ sub draw($;$) {
 
         debug_msg "    writing page name at x=$x";
         $page_win->attron(A_REVERSE) if ($page eq $active_page);
-        $page_win->addstr($y, $x, $page);
+        $page_win->addstring($y, $x, $page);
         $page_win->attroff(A_REVERSE) if ($page eq $active_page);
         if ($this->{-border} or $this->{-sbborder}) {
             for (my $i = 0; $i < length($page); $i++) {

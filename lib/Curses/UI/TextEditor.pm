@@ -461,7 +461,7 @@ sub draw_text(;$)
         $this->{-canvasscr}->attron(A_UNDERLINE) if ($this->{-showlines});;
         $this->{-canvasscr}->attron(A_REVERSE) if ($this->{-reverse});
         for my $y (0..$this->canvasheight-1) {
-            $this->{-canvasscr}->addstr($y, 0, " "x($this->canvaswidth));
+            $this->{-canvasscr}->addstring($y, 0, " "x($this->canvaswidth));
         }
     }
 
@@ -515,7 +515,7 @@ sub draw_text(;$)
             }
 
             # Clear line.
-            $this->{-canvasscr}->addstr(
+            $this->{-canvasscr}->addstring(
                 $id, 0, 
 		" "x$this->canvaswidth
 	    );
@@ -525,7 +525,7 @@ sub draw_text(;$)
             if ($inscreen =~ /\n/)
             {
                 $inscreen =~ s/\n//;
-                $this->{-canvasscr}->addstr($id, 0, $inscreen);
+                $this->{-canvasscr}->addstring($id, 0, $inscreen);
                 if ($this->{-showhardreturns})
                 {
                     if ($this->root->compat)
@@ -538,7 +538,7 @@ sub draw_text(;$)
                     }
                 }
             } else {
-                $this->{-canvasscr}->addstr($id, 0, $inscreen);
+                $this->{-canvasscr}->addstring($id, 0, $inscreen);
             }
             
             # Draw overflow characters.

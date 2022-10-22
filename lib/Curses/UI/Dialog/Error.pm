@@ -66,10 +66,10 @@ sub draw(;$)
     $this->SUPER::draw(1) or return $this;
 
     # Draw sign
-    $this->{-borderscr}->addstr(2, 1, "    _"); 
-    $this->{-borderscr}->addstr(3, 1, "   / \\"); 
-    $this->{-borderscr}->addstr(4, 1, "  / ! \\"); 
-    $this->{-borderscr}->addstr(5, 1, " /_____\\"); 
+    $this->{-borderscr}->addstring(2, 1, "    _");
+    $this->{-borderscr}->addstring(3, 1, "   / \\");
+    $this->{-borderscr}->addstring(4, 1, "  / ! \\");
+    $this->{-borderscr}->addstring(5, 1, " /_____\\");
     $this->{-borderscr}->noutrefresh();
 
     $this->{-canvasscr}->noutrefresh();

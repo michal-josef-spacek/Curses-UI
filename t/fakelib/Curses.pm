@@ -8,7 +8,7 @@
 
 package Curses;
 
-$VERSION = 1.06;
+$VERSION = 1.29;
 
 use Carp;
 require Exporter;
@@ -25,7 +25,7 @@ sub new      {
 
 sub DESTROY  { }
 
-sub printw   { addstr(sprintf shift, @_) }
+sub printw   { addstring(sprintf shift, @_) }
 
 $LINES = 25;
 $COLS = 80;
@@ -40,16 +40,16 @@ $COLOR_PAIRS = "";
     LINES $LINES COLS $COLS stdscr $stdscr curscr $curscr COLORS $COLORS
     COLOR_PAIRS $COLOR_PAIRS
 
-    addch echochar addchstr addchnstr addstr addnstr attroff attron attrset
+    addch echochar addchstr addchnstr addstring addnstr attroff attron attrset
     standend standout attr_get attr_off attr_on attr_set chgat COLOR_PAIR
     PAIR_NUMBER beep flash bkgd bkgdset getbkgd border box hline vline
     erase clear clrtobot clrtoeol start_color init_pair init_color
     has_colors can_change_color color_content pair_content delch deleteln
-    insdelln insertln getch ungetch has_key KEY_F getstr getnstr getyx
+    insdelln insertln getchar ungetchar has_key KEY_F getstring getnstr getyx
     getparyx getbegyx getmaxyx inch inchstr inchnstr initscr endwin
     isendwin newterm set_term delscreen cbreak nocbreak echo noecho
     halfdelay intrflush keypad meta nodelay notimeout raw noraw qiflush
-    noqiflush timeout typeahead insch insstr insnstr instr innstr
+    noqiflush timeout typeahead insch insstr insnstr instring innstr
     def_prog_mode def_shell_mode reset_prog_mode reset_shell_mode resetty
     savetty getsyx setsyx curs_set napms move clearok idlok idcok immedok
     leaveok setscrreg scrollok nl nonl overlay overwrite copywin newpad
@@ -161,11 +161,11 @@ sub getbegxy{ $_[1] = 1; $_[2] = 2; }
 sub getbegyx{ $_[1] = 1; $_[2] = 2; }
 sub getmaxyx{ $_[1] = 24; $_[2] = 80; }
 
-sub getch{
+sub getchar{
 # ok, I got a problem here ... mess with the internals
     my $badboy = caller();
     no strict 'refs';
-    #    print STDERR "getch called for $badboy\n";
+    #    print STDERR "getchar called for $badboy\n";
     *{$badboy . "::get_key"} = sub(;$) { 
 	$foo = rand 2; #there is a deep dispute in curses UI
 	               #about if get_key returns a string or

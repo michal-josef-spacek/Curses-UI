@@ -567,8 +567,8 @@ sub draw(;$)
         for my $y (0 .. $this->{-sh}-1)
         {
             my $rel_y = $y + $this->{-sy} - $this->{-by};
-            $this->{-borderscr}->addstr($rel_y, 0, '[');
-            $this->{-borderscr}->addstr($rel_y, $this->{-bw}-$offset, ']');
+            $this->{-borderscr}->addstring($rel_y, 0, '[');
+            $this->{-borderscr}->addstring($rel_y, $this->{-bw}-$offset, ']');
         }
         $this->{-borderscr}->attroff(A_BOLD) if $this->{-focus};
         }
@@ -602,7 +602,7 @@ sub draw(;$)
             if ($this->{-titlefullwidth} 
                 and $this->{-titlereverse}) {
             	$this->{-borderscr}->attron(A_BOLD); 
-                $this->{-borderscr}->addstr(0, 1, " "x($this->{-bw}-2));
+                $this->{-borderscr}->addstring(0, 1, " "x($this->{-bw}-2));
                 $this->{-borderscr}->attroff(A_BOLD);
             }
             my $t = $this->{-title};
@@ -613,7 +613,7 @@ sub draw(;$)
                 $t =~ s/.$/\$/;
             }
             $this->{-borderscr}->attron(A_BOLD);   
-            $this->{-borderscr}->addstr(0, 1, " $t ");
+            $this->{-borderscr}->addstring(0, 1, " $t ");
             $this->{-borderscr}->attroff(A_REVERSE);
             $this->{-borderscr}->attroff(A_BOLD);   
         }
@@ -1849,7 +1849,7 @@ new(), layout(), draw() and focus(), it can be used in Curses::UI.
         $this->SUPER::draw(1);
 
         ....your own draw stuff....
-        $this->{-canvasscr}->addstr(0, 0, "Fixed string");
+        $this->{-canvasscr}->addstring(0, 0, "Fixed string");
         ....your own draw stuff....
 
         $this->{-canvasscr}->noutrefresh;

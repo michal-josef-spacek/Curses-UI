@@ -217,8 +217,8 @@ sub draw(;$) {
     }
 
     $this->{-canvasscr}->attron(A_BOLD) if $this->{-focus};    
-    $this->{-canvasscr}->addstr(0, 0, '[ ]');
-    $this->{-canvasscr}->addstr(0, 1, 'X') if $this->{-checked};
+    $this->{-canvasscr}->addstring(0, 0, '[ ]');
+    $this->{-canvasscr}->addstring(0, 1, 'X') if $this->{-checked};
     $this->{-canvasscr}->attroff(A_BOLD) if $this->{-focus};    
 
     $this->{-canvasscr}->move(0,1);

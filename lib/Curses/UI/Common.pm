@@ -279,13 +279,13 @@ sub text_draw($$;)
 		$this->{-canvasscr}->hline( $y, $x, $type, $scrlen );
 		$x += $scrlen;
 	    } else {
-                $this->{-canvasscr}->addstr($y, $x, $token);
+                $this->{-canvasscr}->addstring($y, $x, $token);
                 $x += length($token);
             }
         }
     }
     else {
-        $this->{-canvasscr}->addstr($y, $x, $text);
+        $this->{-canvasscr}->addstring($y, $x, $text);
     }
 }
 
@@ -434,7 +434,7 @@ sub char_read(;$)
 	print STDERR "DEBUG: get_key() -> select() -> $!\n"
 	    if $Curses::UI::debug; 
     } elsif ($found) {
-	$key = $s->getch();
+	$key = $s->getchar();
     }
 
     return $key;

@@ -121,12 +121,12 @@ sub draw(;$)
 	$this->{-pos} != $this->{-max}) { $blocks-- }
 
     # Draw center line
-    $this->{-canvasscr}->addstr(0, 0, "-"x$this->canvaswidth)
+    $this->{-canvasscr}->addstring(0, 0, "-"x$this->canvaswidth)
         unless $this->{-nocenterline};
 
     # Draw blocks.
     $this->{-canvasscr}->attron(A_REVERSE);
-    $this->{-canvasscr}->addstr(0, 0, " "x$blocks);
+    $this->{-canvasscr}->addstring(0, 0, " "x$blocks);
     $this->{-canvasscr}->attroff(A_REVERSE);
 
     # Draw percentage
@@ -147,9 +147,9 @@ sub draw(;$)
         my $rev = substr($str, 0, $revlen);
         my $norev = substr($str, $revlen, $len-$revlen);
         $this->{-canvasscr}->attron(A_REVERSE);
-        $this->{-canvasscr}->addstr(0, $xpos, $rev);
+        $this->{-canvasscr}->addstring(0, $xpos, $rev);
         $this->{-canvasscr}->attroff(A_REVERSE);
-        $this->{-canvasscr}->addstr(0, $xpos+$revlen, $norev);
+        $this->{-canvasscr}->addstring(0, $xpos+$revlen, $norev);
     }
 
     $this->{-canvasscr}->move(0,$this->canvaswidth-1);

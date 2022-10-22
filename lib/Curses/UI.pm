@@ -7,7 +7,7 @@ BEGIN { $ENV{TERM} = 'vt100' unless defined $ENV{TERM} }
 use strict;
 use warnings;
 
-use Curses;
+use Curses 1.29;
 use Curses::UI::Language;
 use Curses::UI::Color;
 use FileHandle;
@@ -497,7 +497,7 @@ sub draw()
     {
         my $s = $self->{-canvasscr};
         $s->clear;
-        $s->addstr(0, 0, $self->lang->get('screen_too_small'));
+        $s->addstring(0, 0, $self->lang->get('screen_too_small'));
         $s->move(4,0);
         $s->noutrefresh();
 	doupdate();
@@ -817,7 +817,7 @@ sub fatalerror($$;$)
 
     my $s = $self->{-canvasscr};
     $s->clear;
-    $s->addstr(0,0,"Fatal program error:\n"
+    $s->addstring(0,0,"Fatal program error:\n"
     	     . "-"x($ENV{COLS}-1) . "\n"
     	     . $error 
     	     . "-"x($ENV{COLS}-1) . "\n"

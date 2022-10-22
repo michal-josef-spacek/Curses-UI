@@ -245,8 +245,8 @@ sub draw(;$)
         $sellabel = "-"x$width;
     }
 
-    $this->{-canvasscr}->addstr(0,0, " "x$width);
-    $this->{-canvasscr}->addstr(0,0, $sellabel);
+    $this->{-canvasscr}->addstring(0,0, " "x$width);
+    $this->{-canvasscr}->addstring(0,0, $sellabel);
     $this->{-canvasscr}->move(0,$this->canvaswidth-1);
     $this->{-canvasscr}->attroff(A_DIM);
     $this->{-canvasscr}->attroff(A_REVERSE);

@@ -420,7 +420,7 @@ sub draw()
 	$this->{-canvasscr}->attron(COLOR_PAIR($pair));
     }
  
-    $this->{-canvasscr}->addstr(0, 0, " "x$this->canvaswidth);
+    $this->{-canvasscr}->addstring(0, 0, " "x$this->canvaswidth);
 
     # Create menu-items.
     my $x = 1;
@@ -447,7 +447,7 @@ sub draw()
         }
 
         my $label = $item->{-label};
-        $this->{-canvasscr}->addstr(0, $x, " " . $item->{-label} . " ");
+        $this->{-canvasscr}->addstring(0, $x, " " . $item->{-label} . " ");
         $x += length($label) + 2;
 
         $idx++;

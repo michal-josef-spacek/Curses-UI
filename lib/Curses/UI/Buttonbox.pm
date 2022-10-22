@@ -337,7 +337,7 @@ sub draw(;$)
         }
  
         # Draw the button.
-        $this->{-canvasscr}->addstr(
+        $this->{-canvasscr}->addstring(
             $y, $this->{-xpos} + $x, 
             $button->{-label}
         );    

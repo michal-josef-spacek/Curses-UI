@@ -209,11 +209,11 @@ sub draw(;$)
             $line = substr($line, 0, $this->canvaswidth);
             $line =~ s/.$/\$/;
         } elsif ($this->{-paddingspaces}) {
-            $this->{-canvasscr}->addstr($ypos, 0, " "x$this->canvaswidth);
+            $this->{-canvasscr}->addstring($ypos, 0, " "x$this->canvaswidth);
         }
 
         my $xpos = $this->compute_xpos($line);
-        $this->{-canvasscr}->addstr($ypos, $xpos, $line);
+        $this->{-canvasscr}->addstring($ypos, $xpos, $line);
 
         $ypos++;
     }

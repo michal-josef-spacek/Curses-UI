@@ -1,5 +1,7 @@
 Changelog for the Curses::UI distribution:
 
+        - Fix wide character support for Curses 1.29.
+
 Version 0.9609
 ==============
         - Bugfix for crashing error in 0.9608
