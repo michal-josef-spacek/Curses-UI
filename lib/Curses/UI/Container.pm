@@ -411,7 +411,7 @@ sub focus(;$$$)
         }
 
         # Change the draworder if a focusable objects was found.
-        if ($forced or defined $new_obj and $new_obj ne $cur_obj)
+        if ($forced or (defined $new_obj and ($new_obj ne $cur_obj or ! $new_obj->{-focus})))
         {
             my $idx = $this->draworder_id2idx($new_id);
             my $move = splice(@{$this->{-draworder}}, $idx, 1);
