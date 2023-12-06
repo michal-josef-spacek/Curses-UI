@@ -46,6 +46,9 @@ my %lang_alias = (
 
     'cn'        => 'chinese',
 
+    'sk'        => 'slovak',
+
+    'cs'        => 'czech',
 );
 
 sub new()

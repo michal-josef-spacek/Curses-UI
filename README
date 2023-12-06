@@ -45,15 +45,21 @@ know. If you want to translate the needed strings, I'll add
 the language to the distribution. Currently the following languages
 are supported:
 
-- English
+- Chinese
+- Czech
 - Dutch
+- English
+- French
 - German
-- Russian
 - Italian
+- Japanese
+- Norwegian
 - Polish
 - Portuguese
-- Norwegian
+- Russian
 - Slovak
+- Spanish
+- Turkish
 
 
 Examples
